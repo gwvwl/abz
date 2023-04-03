@@ -46,7 +46,7 @@ const CustomForm = () => {
           if (key === "phone") {
             return formData.append(`${key}`, value.replace(/[^+\d]/g, ""));
           }
-          formData.append(`${key}`, value);
+          return formData.append(`${key}`, value);
         });
 
         dispatch(signUp(formData));
