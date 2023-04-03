@@ -1,0 +1,127 @@
+.form {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 380px;
+}
+.form__input {
+  width: 380px;
+  min-height: 54px;
+  box-sizing: border-box;
+  border: 1px solid #d0cfcf;
+  border-radius: 4px;
+}
+
+.form__submit {
+  border: none;
+}
+
+.form__input {
+  margin-bottom: 50px;
+}
+
+.form-select {
+  margin: 10px 0 61px 28px;
+}
+.form__submit {
+  margin: 0 auto;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+/* radio */
+
+.custom-radio [type="radio"]:checked,
+.custom-radio [type="radio"]:not(:checked) {
+  display: none;
+}
+
+.custom-radio [type="radio"]:checked + .custom-radio__label,
+.custom-radio [type="radio"]:not(:checked) + .custom-radio__label {
+  position: relative;
+  cursor: pointer;
+  line-height: 26px;
+  margin-bottom: 4px;
+}
+
+.custom-radio [type="radio"]:checked + .custom-radio__label:before,
+.custom-radio [type="radio"]:not(:checked) + .custom-radio__label:before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.custom-radio [type="radio"]:checked + .custom-radio__label:after,
+.custom-radio [type="radio"]:not(:checked) + .custom-radio__label:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #00bdd3;
+  position: absolute;
+  top: 7px;
+  left: -25px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.custom-radio [type="radio"]:not(:checked) + .custom-radio__label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.custom-radio [type="radio"]:checked + .custom-radio__label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/* photo */
+
+.input-img {
+  display: flex;
+  cursor: pointer;
+  border: 1px solid #d0cfcf;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 380px;
+  min-height: 54px;
+}
+
+.input-img__right {
+  box-sizing: border-box;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  text-align: left;
+  color: #7e7e7e;
+}
+
+.input-img__left {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 4px 0px 0px 4px;
+  text-align: center;
+  padding: 15px 14px;
+  background: white;
+}
+
+.form-input__none {
+  display: none;
+}
+
+.error {
+  color: #e53e3e;
+  margin-top: 8px;
+}

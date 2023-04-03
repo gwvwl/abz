@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  background: #e5e5e5;
+}
+a {
+  display: block;
+}
+li {
+  list-style: none;
+}
+input {
+  padding-left: 10px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+span {
+  display: block;
+}
+img {
+  display: block;
+  object-fit: cover;
+}
+
+h2 {
+  margin: 0;
+}
+
+@media only screen and (max-width: 1125px) {
+  .employee__card {
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 370px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .employee__card {
+    margin: 0 auto;
+    grid-template-columns: 370px;
+  }
+}
