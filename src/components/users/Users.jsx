@@ -27,7 +27,7 @@ const Users = () => {
         {employee.map((item) => {
           return (
             <div className="employee__card__item" key={item.id}>
-              <img src={item.photo} alt="photo" />
+              <img src={item.photo} alt="user_icon" />
               <span className="employee-name">{item.name}</span>
               <ul className="employee-promo">
                 <li className="employee-promo__position">{item.position}</li>

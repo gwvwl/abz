@@ -46,7 +46,7 @@ export const signUp = createAsyncThunk(
         body,
         headers: { Token: token },
       };
-      let request = await fetch(
+      await fetch(
         `https://frontend-test-assignment-api.abz.agency/api/v1/users`,
         requestOptions
       );
