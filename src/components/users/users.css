@@ -2,11 +2,17 @@
   max-width: 1170px;
   margin: 0 auto;
 }
-.main-wraper h2,
-.form h2 {
+.main-wraper h2 {
   font-size: 40px;
   text-align: center;
   margin: 140px 0 50px;
+}
+
+.employee__card {
+  display: grid;
+  grid-template: repeat(2, 254px) / repeat(3, 370px);
+  justify-content: space-between;
+  row-gap: 20px;
 }
 
 .employee__card__item {
@@ -34,11 +40,4 @@
 
 .employee-promo {
   line-height: 26px;
-}
-
-.employee__card {
-  display: grid;
-  grid-template: repeat(2, 254px) / repeat(3, 370px);
-  justify-content: space-between;
-  row-gap: 20px;
 }

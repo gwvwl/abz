@@ -2,7 +2,12 @@
   margin: 0 auto;
   max-width: 1170px;
 }
-form {
+.form h2 {
+  font-size: 40px;
+  text-align: center;
+  margin: 140px 0 50px;
+}
+.form form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -14,13 +19,6 @@ form {
   box-sizing: border-box;
   border: 1px solid #d0cfcf;
   border-radius: 4px;
-}
-
-.form__submit {
-  border: none;
-}
-
-.form__input {
   margin-bottom: 50px;
 }
 
@@ -28,28 +26,25 @@ form {
   margin: 10px 0 61px 28px;
 }
 .form__submit {
-  margin: 0 auto;
+  border: none;
+  margin: 50px auto;
   cursor: pointer;
-  margin-top: 50px;
 }
 
 /* radio */
 
-.custom-radio [type="radio"]:checked,
-.custom-radio [type="radio"]:not(:checked) {
+.custom-radio [type="radio"] {
   display: none;
 }
 
-.custom-radio [type="radio"]:checked + .custom-radio__label,
-.custom-radio [type="radio"]:not(:checked) + .custom-radio__label {
+.custom-radio [type="radio"] + .custom-radio__label {
   position: relative;
   cursor: pointer;
   line-height: 26px;
   margin-bottom: 4px;
 }
 
-.custom-radio [type="radio"]:checked + .custom-radio__label:before,
-.custom-radio [type="radio"]:not(:checked) + .custom-radio__label:before {
+.custom-radio [type="radio"] + .custom-radio__label:before {
   content: "";
   position: absolute;
   left: -30px;
@@ -61,8 +56,7 @@ form {
   background: #fff;
 }
 
-.custom-radio [type="radio"]:checked + .custom-radio__label:after,
-.custom-radio [type="radio"]:not(:checked) + .custom-radio__label:after {
+.custom-radio [type="radio"] + .custom-radio__label:after {
   content: "";
   width: 10px;
   height: 10px;
