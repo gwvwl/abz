@@ -41,3 +41,20 @@
 .employee-promo {
   line-height: 26px;
 }
+
+@media only screen and (max-width: 1125px) {
+  .employee__card {
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 370px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .employee__card__item {
+    width: 328px;
+  }
+  .employee__card {
+    margin: 0 auto;
+    grid-template-columns: 328px;
+  }
+}

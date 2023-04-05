@@ -34,17 +34,3 @@ img {
 h2 {
   margin: 0;
 }
-
-@media only screen and (max-width: 1125px) {
-  .employee__card {
-    justify-content: space-around;
-    grid-template-columns: repeat(2, 370px);
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .employee__card {
-    margin: 0 auto;
-    grid-template-columns: 370px;
-  }
-}
