@@ -1,4 +1,5 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useState } from "react";
+import { Formik, Field, Form, ErrorMessage, getIn } from "formik";
 import * as Yup from "yup";
 import { signUp } from "../../store/slices/employeeSlice";
 import { useDispatch } from "react-redux";
@@ -6,6 +7,11 @@ import InputMask from "react-input-mask";
 import "./form.css";
 
 const FormSingUp = ({ refUsers }) => {
+  const [photo, setPhoto] = useState({
+    photoName: "",
+    errors: false,
+  });
+
   const dispatch = useDispatch();
   // for photo
   const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg"];
@@ -39,6 +45,25 @@ const FormSingUp = ({ refUsers }) => {
               !value || (value && SUPPORTED_FORMATS.includes(value.type))
           ),
       })}
+      validate={(values) => {
+        // validate photo style
+        const photo = values.photo;
+        if (
+          !photo ||
+          (photo && photo.size <= 70 * 70) ||
+          (photo && SUPPORTED_FORMATS.includes(photo.type))
+        ) {
+          setPhoto((photo) => ({
+            ...photo,
+            errors: false,
+          }));
+        } else {
+          setPhoto((photo) => ({
+            ...photo,
+            errors: true,
+          }));
+        }
+      }}
       onSubmit={(body, actions) => {
         // collect data
         const formData = new FormData();
@@ -62,7 +87,7 @@ const FormSingUp = ({ refUsers }) => {
         });
       }}
     >
-      {({ setFieldValue, handleChange, handleBlur }) => (
+      {({ setFieldValue, handleChange, handleBlur, errors }) => (
         <div className="form" id="formFocus">
           <h2>Working with POST request</h2>
           <Form>
@@ -138,11 +163,21 @@ const FormSingUp = ({ refUsers }) => {
               </div>
             </div>
             <ErrorMessage name="photo" className="error" component="div" />
-            <label className="input-img" htmlFor="photo">
+            <label
+              className="input-img"
+              style={
+                photo.errors
+                  ? { border: "2px solid red", borderRadius: "6px 0px 0px 6px" }
+                  : {}
+              }
+              htmlFor="photo"
+            >
               <div className="input-img__left">
                 <span>Upload</span>
               </div>
-              <span className="input-img__right">Upload your photo</span>
+              <span className="input-img__right">
+                {photo.name ? photo.name : "Upload your photo"}
+              </span>
               <input
                 className="form-input__none"
                 type="file"
@@ -150,6 +185,10 @@ const FormSingUp = ({ refUsers }) => {
                 name="photo"
                 onChange={(event) => {
                   setFieldValue("photo", event.target.files[0]);
+                  setPhoto((photo) => ({
+                    ...photo,
+                    name: event?.target?.files[0].name,
+                  }));
                 }}
               />
             </label>
