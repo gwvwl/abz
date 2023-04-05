@@ -50,9 +50,11 @@ export const signUp = createAsyncThunk(
         `https://frontend-test-assignment-api.abz.agency/api/v1/users`,
         requestOptions
       );
-      let result = await request.json();
+      const result = await request.json();
+      if (result?.success) dispatch(setSubmit(true));
 
       getEmployee(0).then((res) => dispatch(ListEmployee(res.users)));
+
       return result;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -67,6 +69,7 @@ const employeeSlice = createSlice({
     show: true,
     status: null,
     error: null,
+    submit: false,
   },
   reducers: {
     ListEmployee(state, { payload }) {
@@ -78,9 +81,13 @@ const employeeSlice = createSlice({
     setShow(state, { payload }) {
       state.show = payload;
     },
+    setSubmit(state, { payload }) {
+      state.submit = payload;
+    },
   },
 });
 
-export const { ListEmployee, addEmployee, setShow } = employeeSlice.actions;
+export const { ListEmployee, addEmployee, setShow, setSubmit } =
+  employeeSlice.actions;
 
 export default employeeSlice.reducer;

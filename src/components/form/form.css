@@ -119,3 +119,23 @@
   color: #e53e3e;
   margin-top: 8px;
 }
+
+.success {
+  width: 1024px;
+  height: 462px;
+  margin: 0 auto;
+}
+
+.success_text {
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 50px;
+}
+
+.success_img {
+  width: 328px;
+  height: 290px;
+  margin: 0 auto;
+}
