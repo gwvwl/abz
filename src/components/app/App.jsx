@@ -1,15 +1,18 @@
+import { useState } from "react";
 import Header from "../header/Header";
 import Users from "../users/Users";
-import CustomForm from "../form/Form";
+import FormSingUp from "../form/FormSingUp";
 
 import "./app.css";
 
 const App = () => {
+  const [refUsers, setRefUsers] = useState();
+
   return (
     <>
       <Header />
-      <Users />
-      <CustomForm />
+      <Users setRefUsers={setRefUsers} />
+      <FormSingUp refUsers={refUsers} />
     </>
   );
 };

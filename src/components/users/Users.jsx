@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./users.css";
 
@@ -7,7 +7,8 @@ import {
   addEmployeeList,
 } from "../../store/slices/employeeSlice";
 
-const Users = () => {
+const Users = ({ setRefUsers }) => {
+  const refUsers = useRef(null);
   const dispatch = useDispatch();
   const employee = useSelector((state) => state.employee.employee);
   const show = useSelector((state) => state.employee.show);
@@ -20,8 +21,11 @@ const Users = () => {
     }
   }, [employee]);
 
+  useEffect(() => {
+    setRefUsers(refUsers);
+  }, []);
   return (
-    <div className="main-wraper" id="users">
+    <div className="main-wraper" ref={refUsers} id="users">
       <h2>Working with GET request</h2>
       <div className="employee__card">
         {employee.map((item) => {

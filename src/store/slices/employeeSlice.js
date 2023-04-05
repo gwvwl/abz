@@ -46,13 +46,14 @@ export const signUp = createAsyncThunk(
         body,
         headers: { Token: token },
       };
-      await fetch(
+      const request = await fetch(
         `https://frontend-test-assignment-api.abz.agency/api/v1/users`,
         requestOptions
       );
-      // let result = await request.json();
+      let result = await request.json();
 
       getEmployee(0).then((res) => dispatch(ListEmployee(res.users)));
+      return result;
     } catch (error) {
       return rejectWithValue(error.message);
     }

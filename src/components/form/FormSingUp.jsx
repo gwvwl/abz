@@ -1,11 +1,11 @@
-import "./form.css";
-
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { signUp } from "../../store/slices/employeeSlice";
 import { useDispatch } from "react-redux";
 import InputMask from "react-input-mask";
-const CustomForm = () => {
+import "./form.css";
+
+const FormSingUp = ({ refUsers }) => {
   const dispatch = useDispatch();
   // for photo
   const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg"];
@@ -49,9 +49,17 @@ const CustomForm = () => {
           return formData.append(`${key}`, value);
         });
 
-        dispatch(signUp(formData));
-        // reset form
-        actions.resetForm();
+        dispatch(signUp(formData)).then((res) => {
+          if (res?.payload?.success) {
+            // focus Users
+            refUsers.current.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+            });
+            // reset form
+            actions.resetForm();
+          }
+        });
       }}
     >
       {({ setFieldValue, handleChange, handleBlur }) => (
@@ -154,4 +162,4 @@ const CustomForm = () => {
     </Formik>
   );
 };
-export default CustomForm;
+export default FormSingUp;
