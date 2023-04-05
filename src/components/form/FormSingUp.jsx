@@ -38,8 +38,8 @@ const FormSingUp = ({ refUsers }) => {
           .required("A file is required")
           .test(
             "Fichier taille",
-            "upload file size 70p70px, format : jpg,jpeg",
-            (value) => !value || (value && value.size <= 70 * 70)
+            "upload file size min 70p70px, format : jpg,jpeg",
+            (value) => !value || (value && value.size >= 70 * 70)
           )
           .test(
             "format",
