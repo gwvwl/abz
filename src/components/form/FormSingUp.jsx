@@ -8,13 +8,39 @@ import "./form.css";
 
 const FormSingUp = ({ refUsers }) => {
   const [fileName, setfileName] = useState();
+  const [fileSizePx, setfileSizePx] = useState();
 
   const onChangePhoto = (event, setFieldValue) => {
     const file = event.target.files[0];
     setFieldValue("photo", file);
-
+    sizeOnPx(file);
     setfileName(file.name);
   };
+
+  const sizeOnPx = async (file) => {
+    let reader = new FileReader();
+    //Read the contents of Image File.
+    reader.readAsDataURL(file);
+
+    reader.onload = function (e) {
+      //Initiate the JavaScript Image object.
+      var image = new Image();
+      //Set the Base64 string return from FileReader as source.
+      image.src = e.target.result;
+      //Validate the File Height and Width.
+      return (image.onload = function () {
+        let height = this.height;
+        let width = this.width;
+        if (height >= 70 && width >= 70) {
+          setfileSizePx(true);
+          return;
+        }
+        setfileSizePx(false);
+        return;
+      });
+    };
+  };
+
   const dispatch = useDispatch();
   // for photo
   const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg"];
@@ -41,6 +67,7 @@ const FormSingUp = ({ refUsers }) => {
             "The photo size must not be greater than 5 Mb",
             (value) => !value || (value && value.size <= 5 * 1024 * 1024)
           )
+          .test("size px", "min 70x70px", (value) => !value || fileSizePx)
           .test(
             "format",
             "format image/jpg,image/jpeg",
