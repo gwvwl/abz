@@ -15,7 +15,7 @@ const App = () => {
     <>
       <Header />
       <Users setRefUsers={setRefUsers} />
-      {submit ? <FormSingUp refUsers={refUsers} /> : <SuccessForm />}
+      {!submit ? <FormSingUp refUsers={refUsers} /> : <SuccessForm />}
     </>
   );
 };
