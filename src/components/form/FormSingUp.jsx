@@ -57,7 +57,14 @@ const FormSingUp = ({ refUsers }) => {
       validationSchema={Yup.object({
         name: Yup.string().min(2, "min 2").required("required"),
         email: Yup.string().email("email is not valid").required("required"),
-        phone: Yup.string().min(12, "min 2").required("required"),
+        phone: Yup.string()
+          // .min(12, "min 12")
+          .required("required")
+          .test(
+            "min 12",
+            "Enter phone number",
+            (value) => !value || (value && !value.includes("_"))
+          ),
         position_id: Yup.string().required("required"),
         photo: Yup.mixed()
           .nullable()
@@ -87,13 +94,15 @@ const FormSingUp = ({ refUsers }) => {
 
         dispatch(signUp(formData)).then((res) => {
           if (res?.payload?.success) {
-            // focus Users
-            refUsers.current.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-            });
             // reset form
             actions.resetForm();
+            // focus Users
+            setTimeout(() => {
+              refUsers.current.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
+            }, 2000);
           }
         });
       }}
