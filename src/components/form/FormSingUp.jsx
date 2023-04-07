@@ -18,19 +18,19 @@ const FormSingUp = ({ refUsers }) => {
   };
 
   const sizeOnPx = async (file) => {
-    let reader = new FileReader();
+    const reader = new FileReader();
     //Read the contents of Image File.
     reader.readAsDataURL(file);
 
     reader.onload = function (e) {
       //Initiate the JavaScript Image object.
-      var image = new Image();
+      const image = new Image();
       //Set the Base64 string return from FileReader as source.
       image.src = e.target.result;
       //Validate the File Height and Width.
       return (image.onload = function () {
-        let height = this.height;
-        let width = this.width;
+        const height = this.height;
+        const width = this.width;
         if (height >= 70 && width >= 70) {
           setfileSizePx(true);
           return;

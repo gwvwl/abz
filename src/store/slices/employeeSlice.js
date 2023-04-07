@@ -53,7 +53,7 @@ export const signUp = createAsyncThunk(
         requestOptions
       );
       const result = await request.json();
-      console.log(result);
+
       if (result?.success) dispatch(setSubmit(true));
 
       getEmployee(0).then((res) => dispatch(ListEmployee(res.users)));
