@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const getEmployee = async (offset) => {
   const request = await fetch(
-    `http://api.gwvwl.site/api/users?offset=${offset}`
+    `https://api.gwvwl.site/api/users?offset=${offset}`
   );
   return await request.json();
 };
@@ -39,7 +39,7 @@ export const signUp = createAsyncThunk(
   "employeeSlice/signUp",
   async (body, { rejectWithValue, dispatch }) => {
     try {
-      const getToken = await fetch("http://api.gwvwl.site/api/token");
+      const getToken = await fetch("https://api.gwvwl.site/api/token");
       const { token } = await getToken.json();
 
       const requestOptions = {
@@ -50,7 +50,7 @@ export const signUp = createAsyncThunk(
         },
       };
       const request = await fetch(
-        "http://api.gwvwl.site/api/signup",
+        "https://api.gwvwl.site/api/signup",
         requestOptions
       );
       const result = await request.json();
