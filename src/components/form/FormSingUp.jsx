@@ -51,7 +51,7 @@ const FormSingUp = ({ refUsers }) => {
         name: "",
         email: "",
         phone: "",
-        position_id: "",
+        position: "",
         photo: [],
       }}
       validationSchema={Yup.object({
@@ -65,7 +65,7 @@ const FormSingUp = ({ refUsers }) => {
             "Enter phone number",
             (value) => !value || (value && !value.includes("_"))
           ),
-        position_id: Yup.string().required("required"),
+        position: Yup.string().required("required"),
         photo: Yup.mixed()
           .nullable()
           .required("A file is required")
@@ -142,16 +142,12 @@ const FormSingUp = ({ refUsers }) => {
               )}
             </Field>
 
-            <ErrorMessage
-              name="position_id"
-              className="error"
-              component="div"
-            />
+            <ErrorMessage name="position" className="error" component="div" />
             <span>Select your position</span>
             <div className="form-select">
               <div className="custom-radio">
                 <label>
-                  <Field type="radio" name="position_id" value={"1"} />
+                  <Field type="radio" name="position" value={"1"} />
                   <div className="custom-radio__label">
                     <span> Frontend developer</span>
                   </div>
@@ -159,7 +155,7 @@ const FormSingUp = ({ refUsers }) => {
               </div>
               <div className="custom-radio">
                 <label>
-                  <Field type="radio" name="position_id" value={"2"} />
+                  <Field type="radio" name="position" value={"2"} />
                   <div className="custom-radio__label">
                     <span>Backend developer</span>
                   </div>
@@ -167,7 +163,7 @@ const FormSingUp = ({ refUsers }) => {
               </div>
               <div className="custom-radio">
                 <label>
-                  <Field type="radio" name="position_id" value={"3"} />
+                  <Field type="radio" name="position" value={"3"} />
                   <div className="custom-radio__label">
                     <span>Designer</span>
                   </div>
@@ -175,7 +171,7 @@ const FormSingUp = ({ refUsers }) => {
               </div>
               <div className="custom-radio">
                 <label>
-                  <Field type="radio" name="position_id" value={"4"} />
+                  <Field type="radio" name="position" value={"4"} />
                   <div className="custom-radio__label">
                     <span>QA</span>
                   </div>
@@ -183,6 +179,13 @@ const FormSingUp = ({ refUsers }) => {
               </div>
             </div>
             <ErrorMessage name="photo" className="error" component="div" />
+
+            {/* <Field
+              className="form__input"
+              type="string"
+              placeholder="Email"
+              name="photo"
+            /> */}
             <label
               className="input-img"
               style={

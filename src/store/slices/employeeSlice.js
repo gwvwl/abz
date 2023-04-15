@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const getEmployee = async (offset) => {
   const request = await fetch(
-    `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&offset=${offset}&count=6`
+    `http://api.gwvwl.site/api/users?offset=${offset}`
   );
   return await request.json();
 };
@@ -24,6 +24,7 @@ export const addEmployeeList = createAsyncThunk(
       getEmployee(offset).then((res) => {
         // if count < offset delete button
         const { total_users, users } = res;
+        console.log(total_users);
         if (total_users === offset || users.length < 6) {
           dispatch(setShow(false));
         }
@@ -38,18 +39,18 @@ export const signUp = createAsyncThunk(
   "employeeSlice/signUp",
   async (body, { rejectWithValue, dispatch }) => {
     try {
-      const getToken = await fetch(
-        "https://frontend-test-assignment-api.abz.agency/api/v1/token"
-      );
+      const getToken = await fetch("http://api.gwvwl.site/api/token");
       const { token } = await getToken.json();
 
       const requestOptions = {
         method: "POST",
         body,
-        headers: { Token: token },
+        headers: {
+          authorization: token,
+        },
       };
       const request = await fetch(
-        `https://frontend-test-assignment-api.abz.agency/api/v1/users`,
+        "http://api.gwvwl.site/api/signup",
         requestOptions
       );
       const result = await request.json();
