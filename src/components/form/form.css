@@ -178,4 +178,15 @@
   .input-img {
     width: 328px;
   }
+  .success {
+    width: 328px;
+    height: 500px;
+  }
+  .explosion_img,
+  .explosion_gif {
+    width: 328px;
+    height: 328px;
+    top: 0;
+    left: 0;
+  }
 }
