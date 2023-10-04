@@ -5,7 +5,7 @@
 .form h2 {
   font-size: 40px;
   text-align: center;
-  margin: 140px 0 50px;
+  margin: 40px 0 50px;
 }
 .form form {
   display: flex;
@@ -23,11 +23,11 @@
 }
 
 .form-select {
-  margin: 10px 0 61px 28px;
+  margin: 10px 0 31px 28px;
 }
 .form__submit {
   border: none;
-  margin: 50px auto;
+  margin: 0 auto 50px;
   cursor: pointer;
 }
 
@@ -81,89 +81,38 @@
   transform: scale(1);
 }
 
-/* photo */
-
-.input-img {
-  display: flex;
-  cursor: pointer;
-  border: 1px solid #d0cfcf;
-  border-radius: 4px;
-  overflow: hidden;
+/* date */
+.input_date_wrapper {
   width: 380px;
-  min-height: 54px;
+  display: flex;
+  justify-content: space-between;
 }
-
-.input-img__right {
-  box-sizing: border-box;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 16px;
-  text-align: left;
-  color: #7e7e7e;
+.input_date_wrapper input {
+  width: 70px;
 }
-
-.input-img__left {
-  box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.87);
-  border-radius: 4px 0px 0px 4px;
-  text-align: center;
-  padding: 15px 14px;
-  background: white;
-}
-
-.form-input__none {
-  display: none;
-}
-
-.error {
-  color: #e53e3e;
-  margin-top: 8px;
-}
-
 .success {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 1024px;
-  height: 819px;
-  margin: 0 auto;
-  position: relative;
 }
-
 .success_text {
-  font-size: 40px;
-  line-height: 40px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.87);
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
-
 .success_img {
-  width: 328px;
-  height: 290px;
-  margin: 0 auto;
+  max-width: 280px;
 }
-
-/* Explosion */
-
-.explosion_img,
-.explosion_gif {
-  position: absolute;
-  width: 512px;
-  height: 462px;
-  top: 25%;
-  left: 25%;
+.error {
+  color: red;
 }
-@keyframes bomb {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+textarea {
+  margin: 0;
+  min-height: 100px !important;
+  font-size: 100%;
+  outline: none;
+  resize: none;
+  padding: 10px;
 }
-
 .explosion_img {
   animation: 2s infinite alternate bomb;
 }
@@ -177,5 +126,8 @@
   }
   .input-img {
     width: 328px;
+  }
+  .input_date_wrapper {
+    width: 324px;
   }
 }

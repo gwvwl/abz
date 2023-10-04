@@ -5,38 +5,99 @@
 .header__nav {
   display: flex;
   justify-content: space-between;
-  margin-top: 17px;
+  margin: 17px;
 }
 .header__nav__account {
   display: flex;
+  align-items: center;
+}
+.header__nav__logo {
+  display: flex;
+  align-items: center;
 }
 
 .buttonAndLink {
   width: 100px;
   min-height: 34px;
+  max-height: 34px;
   border-radius: 80px;
   background-color: #f4e041;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   color: #000000;
 }
 .buttonAndLink:hover {
   transform: translateY(-2px);
   opacity: 0.8;
 }
-
-/* ====== */
-.header__promo-wraper {
-  width: 100%;
-  min-height: 650px;
-  background-image: url(../../style/img/Rectangle29.png);
-  background-repeat: no-repeat;
-  margin-top: 17px;
+/* dropdown ================================================= */
+.lang_dropdown {
+  border-radius: 10px;
+  position: relative;
+}
+.lang_dropdown img {
+  width: 35px;
+  height: 35px;
+}
+.lang_dropdown-header {
+  margin-right: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.lang_dropdown-body {
+  position: absolute;
+  left: -50px;
+  z-index: 1000;
+  width: 150px;
+  background-color: #fff;
+  padding: 5px;
+  display: none;
+}
+
+.lang_dropdown-body.open {
+  display: block;
+}
+
+.lang_dropdown-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lang_dropdown-item:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.lang_dropdown-item-dot {
+  opacity: 0;
+  color: #91a5be;
+  transition: all 0.2s ease-in-out;
+}
+
+.lang_dropdown-item-dot.selected {
+  opacity: 1;
+}
+
+.lang_icon {
+  font-size: 13px;
+  color: #91a5be;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.lang_icon.open {
+  transform: rotate(90deg);
+}
+
+/* ====== */
 .header__promo {
   width: 380px;
   margin: 0 auto;

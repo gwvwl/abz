@@ -9,13 +9,15 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import loggerMiddleware from "redux-logger";
+import loggerMiddleware from "redux-logger";
 import storage from "redux-persist/lib/storage";
 
-import employeeReducer from "./slices/employeeSlice";
+import orderReducer from "./slices/orderSlice";
+import userReducer from "./slices/userSlice";
 
 const combinedReducer = combineReducers({
-  employee: employeeReducer,
+  order: orderReducer,
+  user: userReducer,
 });
 
 const persistConfig = {
@@ -33,9 +35,9 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
-  // redux logger
-  // .concat(loggerMiddleware),
+    })
+      // redux logger
+      .concat(loggerMiddleware),
 });
 
 export const persistor = persistStore(store);
