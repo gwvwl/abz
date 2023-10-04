@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_URL = `https://basegone.api.site/`;
+export const API_URL = `https://api.basegone.site/`;
 // export const API_URL = `http://localhost:8080`;
 
 const $api = axios.create({
