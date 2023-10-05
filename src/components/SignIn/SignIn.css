@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css");
+
 .head {
   font-family: "Open Sans", "sans-serif", "FontAwesome";
   color: #000;
@@ -7,15 +8,14 @@
   width: 200px;
   text-align: center;
 }
+
 .wrapper_signin {
   box-sizing: border-box;
   width: 100vw;
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   padding-top: 30vh;
   align-items: center;
-  /* background: #fff; */
   position: relative;
 }
 
@@ -36,11 +36,11 @@
   margin-left: 20px;
   z-index: 1;
 }
-.signin input:first-of-type {
+.signin .user {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
-.signin input:last-of-type {
+.signin .pass {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -49,7 +49,8 @@
 .signin input[type="password"],
 .signin button[type="submit"] {
   background: rgb(28, 30, 33);
-  box-shadow: inset -100px -100px 0 rgb(28, 30, 33); /*Prevent yellow autofill color*/
+  -webkit-box-shadow: inset -100px -100px 0 rgb(28, 30, 33);
+  box-shadow: inset -100px -100px 0 rgb(28, 30, 33);
   color: #fff;
 }
 .signin input[type="text"],

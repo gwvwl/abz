@@ -1,11 +1,14 @@
 export const formTr = {
   title: {
-    en: "Table reservations at Basegone",
-    it: "Prenotazione tavoli al Basegone",
+    en: "Reservation",
+    it: "Prenotazione",
   },
-
+  sign: {
+    en: "Sign in",
+    it: "Accedi",
+  },
   type: {
-    title: { en: "Organization's title:", it: " Nome aziendale:" },
+    title: { en: "Client type:", it: " Tipologia cliente:" },
     privat: { en: "Private", it: "Privato" },
     guide: { en: "Tour guide", it: "Guida turistica " },
   },

@@ -91,7 +91,7 @@ const FormCreateOrder = ({}) => {
     >
       {({ setFieldValue, handleChange, handleBlur, errors, touched }) => (
         <div className="form" id="formFocus">
-          <h2>{formTr.name[lang]}</h2>
+          <h2>{formTr.title[lang]}</h2>
           <Form>
             <ErrorMessage name="name" className="error" component="div" />
             <Field
@@ -141,7 +141,11 @@ const FormCreateOrder = ({}) => {
               </div>
               <div className="custom-radio">
                 <label>
-                  <Field type="radio" name="type" value={"2"} />
+                  <Field
+                    type="radio"
+                    name="type"
+                    value={formTr.type.guide.en}
+                  />
                   <div className="custom-radio__label">
                     <span>{formTr.type.guide[lang]}</span>
                   </div>

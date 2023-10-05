@@ -1,8 +1,10 @@
 import { useState } from "react";
 import LangDropIcon from "./LangDropIcon";
+import { formTr } from "../../utils/translate";
 import { useSelector, useDispatch } from "react-redux";
 import { setLang } from "../../store/slices/userSlice";
 import { NavLink } from "react-router-dom";
+import logo from "../../style/img/logo.png";
 import "./header.css";
 
 const Header = () => {
@@ -20,9 +22,9 @@ const Header = () => {
     <header className="header">
       <div className="header__nav">
         <div className="header__nav__logo">
-          {/* <img src={logo} alt="logo" />
-           */}
-          <span className="buttonAndLink ">Basegone</span>
+          <img src={logo} alt="logo" />
+
+          {/* <span className="buttonAndLink ">Basegone</span> */}
         </div>
         <div className="header__nav__account">
           <LangDropIcon
@@ -32,7 +34,7 @@ const Header = () => {
             handleLanguageChange={handleLanguageChange}
           />
           <NavLink to="/signin" className="buttonAndLink">
-            Sign in
+            {formTr.sign[languageSlug]}
           </NavLink>
         </div>
       </div>
