@@ -36,7 +36,11 @@ export const formTr = {
     en: "Send",
     it: "Inviare",
   },
-
+  return: { en: "Return", it: "Indietro" },
+  success: {
+    en: "Your reservation was successful",
+    it: "Hai prenotato il tavolo, grazie",
+  },
   dateInput: {
     mask: {
       en: `D\\ate: 99.99 Time:99:99`,

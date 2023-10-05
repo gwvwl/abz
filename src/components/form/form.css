@@ -96,8 +96,13 @@
   justify-content: center;
   align-items: center;
 }
+.success button {
+  margin-top: 30px;
+}
 .success_text {
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin: 30px 5px 50px;
+  text-align: center;
 }
 .success_img {
   max-width: 280px;
