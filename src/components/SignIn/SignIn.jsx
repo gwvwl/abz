@@ -8,7 +8,7 @@ import "./SignIn.css";
 
 const SignIn = () => {
   const dispatch = useDispatch();
-  //   const errorSignIn = useSelector((state) => state.user.error);
+  const errorSignIn = useSelector((state) => state.user.error);
   const navigate = useNavigate();
   return (
     <Formik
@@ -27,7 +27,11 @@ const SignIn = () => {
     >
       <div className="wrapper_signin">
         <h1 className="head">Sign In</h1>
-        {/* {errorSignIn ? <div>Wrong password or login</div> : ""} */}
+        {errorSignIn ? (
+          <div style={{ color: "red" }}>Wrong password or login</div>
+        ) : (
+          ""
+        )}
         <ErrorMessage name="login" className="error user" component="div" />
 
         <Form className="signin">
