@@ -69,31 +69,24 @@ const TableReport = React.memo(() => {
         visible: false,
       };
     });
-
-  //  state filters
-  const [dataInput, setDataInput] = useState({
-    dateMin: "",
-    dateMax: "",
-  });
+  // first date
   const formatDate = (date) => {
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
     return `${day}-${month}`;
   };
+  const today = new Date();
+  const nextWeek = new Date();
+  nextWeek.setDate(today.getDate() + 7);
 
-  useLayoutEffect(() => {
-    const today = new Date();
-    const nextWeek = new Date();
-    nextWeek.setDate(today.getDate() + 7);
+  const todayFormatted = formatDate(today);
+  const nextWeekFormatted = formatDate(nextWeek);
+  //  state filters
+  const [dataInput, setDataInput] = useState({
+    dateMin: todayFormatted,
+    dateMax: nextWeekFormatted,
+  });
 
-    const todayFormatted = formatDate(today);
-    const nextWeekFormatted = formatDate(nextWeek);
-
-    setDataInput({
-      dateMin: todayFormatted,
-      dateMax: nextWeekFormatted,
-    });
-  }, []);
   // input onChannge
   const onChangeData = (name, data) => {
     setDataInput((dataInput) => ({

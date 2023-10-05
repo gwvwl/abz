@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import loggerMiddleware from "redux-logger";
+
 import storage from "redux-persist/lib/storage";
 
 import orderReducer from "./slices/orderSlice";
@@ -35,9 +35,9 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
-      // redux logger
-      .concat(loggerMiddleware),
+    }),
+  // redux logger
+  // .concat(loggerMiddleware),
 });
 
 export const persistor = persistStore(store);

@@ -14,6 +14,6 @@ export const makeUrl = (dataInput) => {
       `${max[1] + "-" + max[0]}` +
       `-${currentYear}`;
   }
-  console.log(ret);
+
   return ret;
 };
