@@ -17,8 +17,8 @@ export const columnsTable = {
       accessor: "name",
     },
     {
-      Header: "Type",
-      accessor: "type",
+      Header: "Agency",
+      accessor: "agencyTitle",
     },
     {
       Header: "Customs",
@@ -51,8 +51,8 @@ export const columnsTable = {
       accessor: "name",
     },
     {
-      Header: "Type",
-      accessor: "type",
+      Header: "Agency",
+      accessor: "agencyTitle",
     },
     {
       Header: "Customs",

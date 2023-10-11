@@ -33,8 +33,8 @@ export const formTr = {
     it: "Data e Ora precisa",
   },
   details: {
-    en: "Details (allergies, intolerances, preferences, quantity of cicchetti)      *Luca Zaia - ViaggiaVeneto",
-    it: "Dettagli (allergie, intolleranze, preferenze, quantità di cicchetti)                      *Luca Zaia - ViaggiaVeneto",
+    en: "Details (allergies, intolerances, preferences, quantity of cicchetti)",
+    it: "Dettagli (allergie, intolleranze, preferenze, quantità di cicchetti)",
   },
   send: {
     en: "Send",
