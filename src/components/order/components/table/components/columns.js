@@ -9,19 +9,19 @@ export const columnsTable = {
       accessor: "delete",
     },
     {
-      Header: "date",
+      Header: "Date",
       accessor: "date",
     },
     {
-      Header: "name",
+      Header: "Name",
       accessor: "name",
     },
     {
-      Header: "phone",
-      accessor: "phone",
+      Header: "Type",
+      accessor: "type",
     },
     {
-      Header: "customs",
+      Header: "Customs",
       accessor: "customs",
     },
     {
@@ -43,19 +43,19 @@ export const columnsTable = {
       accessor: "put",
     },
     {
-      Header: "date",
+      Header: "Date",
       accessor: "date",
     },
     {
-      Header: "name",
+      Header: "Name",
       accessor: "name",
     },
     {
-      Header: "phone",
-      accessor: "phone",
+      Header: "Type",
+      accessor: "type",
     },
     {
-      Header: "customs",
+      Header: "Customs",
       accessor: "customs",
     },
 
