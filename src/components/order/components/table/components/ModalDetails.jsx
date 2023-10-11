@@ -8,8 +8,9 @@ const ModalDetails = ({ modalState, onClose }) => {
       title="Datails :"
       content={
         modalState.item && (
-          <div className="modal_del_content">
-            <p> {modalState.item.details}</p>
+          <div className="modal_details_content">
+            <p>Agency title: {modalState.item.agencyTitle},</p>
+            <p>Details: {modalState.item.details} .</p>
           </div>
         )
       }

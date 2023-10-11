@@ -12,6 +12,10 @@ export const formTr = {
     privat: { en: "Private", it: "Privato" },
     guide: { en: "Tour guide", it: "Guida turistica " },
   },
+  agencyTitle: {
+    en: "Agency title",
+    it: "Nome Agenzia",
+  },
   name: {
     en: "Name Surname",
     it: "Nome Cognome",
@@ -29,8 +33,8 @@ export const formTr = {
     it: "Data e Ora precisa",
   },
   details: {
-    en: "Details (allergies, intolerances, preferences, quantity of cicchetti)",
-    it: "Dettagli (allergie, intolleranze, preferenze, quantità di cicchetti)",
+    en: "Details (allergies, intolerances, preferences, quantity of cicchetti)      *Luca Zaia - ViaggiaVeneto",
+    it: "Dettagli (allergie, intolleranze, preferenze, quantità di cicchetti)                      *Luca Zaia - ViaggiaVeneto",
   },
   send: {
     en: "Send",

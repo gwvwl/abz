@@ -2,6 +2,7 @@ import React from "react";
 import FilterInputs from "./FilterInputs";
 import imgDetails from "../../../../../style/img/details_icon.png";
 import imgDelete from "../../../../../style/img/delete.png";
+import imgPut from "../../../../../style/img/rename.png";
 const HeaderTable = ({ dataInput, onChangeData, columns }) => {
   return columns.map((column) => {
     if (column.accessor === "details") {
@@ -15,6 +16,13 @@ const HeaderTable = ({ dataInput, onChangeData, columns }) => {
       return (
         <th key={column.Header}>
           <img className="table-icon delete" src={imgDelete} alt="delete" />
+        </th>
+      );
+    }
+    if (column.accessor === "put") {
+      return (
+        <th key={column.Header}>
+          <img className="table-icon delete" src={imgPut} alt="imgPut" />
         </th>
       );
     }

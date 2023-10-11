@@ -2,8 +2,15 @@ import React from "react";
 
 import img_details from "../../../../../style/img/details_icon.png";
 import img_delete from "../../../../../style/img/delete.png";
+import img_put from "../../../../../style/img/rename.png";
 
-const BodyTable = ({ setModalDetele, setModalDetails, data, columns }) => {
+const BodyTable = ({
+  setModalDetele,
+  setModalDetails,
+  setModalPut,
+  data,
+  columns,
+}) => {
   const showModal = (item, func) => {
     func(() => {
       return {
@@ -26,6 +33,17 @@ const BodyTable = ({ setModalDetele, setModalDetails, data, columns }) => {
                   style={{ cursor: "pointer" }}
                 >
                   <img className="table-icon" src={img_details} alt="details" />
+                </td>
+              );
+            }
+            if (accessor === "put") {
+              return (
+                <td
+                  key={index + ind}
+                  onClick={() => showModal(item, setModalPut)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img className="table-icon" src={img_put} alt="img_put" />
                 </td>
               );
             }

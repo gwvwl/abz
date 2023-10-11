@@ -59,6 +59,19 @@ export const delOrder = createAsyncThunk(
   }
 );
 
+export const putOrder = createAsyncThunk(
+  "menu/delCategory",
+  async ({ id, data, body, offset }, { rejectWithValue, dispatch }) => {
+    try {
+      const response = await $api.put(`/order/${id}`, data);
+      dispatch(getFilterData({ body, offset }));
+      return response.status;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const orderSlice = createSlice({
   name: "order",
   initialState: {

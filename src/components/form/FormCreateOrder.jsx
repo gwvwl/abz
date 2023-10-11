@@ -10,12 +10,14 @@ const FormCreateOrder = ({}) => {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.user.lang);
   function parseCustomDateString(customString) {
-    const dateParts = customString.match(
+    let dateParts = customString.match(
       /Data: (\d{2}.\d{2}) Ora precisa:(\d{2}):(\d{2})/
     );
 
     if (!dateParts) {
-      return null;
+      dateParts = customString.match(
+        /Date: (\d{2}.\d{2}) Time:(\d{2}):(\d{2})/
+      );
     }
 
     const dayMonth = dateParts[1].split(".");
@@ -43,7 +45,7 @@ const FormCreateOrder = ({}) => {
         phone: "",
         type: "",
         date: "",
-        time: "",
+        agencyTitle: "",
         details: "",
       }}
       validationSchema={Yup.object({
@@ -89,41 +91,10 @@ const FormCreateOrder = ({}) => {
         });
       }}
     >
-      {({ setFieldValue, handleChange, handleBlur, errors, touched }) => (
+      {({ handleChange, handleBlur }) => (
         <div className="form" id="formFocus">
           <h2>{formTr.title[lang]}</h2>
           <Form>
-            <ErrorMessage name="name" className="error" component="div" />
-            <Field
-              className="form__input"
-              type="text"
-              placeholder={formTr.name[lang]}
-              name="name"
-            />
-
-            <ErrorMessage name="customs" className="error" component="div" />
-            <Field
-              className="form__input"
-              type="number"
-              placeholder={formTr.quanitity[lang]}
-              name="customs"
-            />
-
-            <ErrorMessage name="phone" className="error" component="div" />
-            <Field name="phone">
-              {({ field }) => (
-                <InputMask
-                  {...field}
-                  mask="+99(999) 999-9999"
-                  id="phone"
-                  placeholder={formTr.phone[lang]}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form__input"
-                />
-              )}
-            </Field>
-
             <ErrorMessage name="type" className="error" component="div" />
             <span>{formTr.type.title[lang]}</span>
             <div className="form-select">
@@ -152,6 +123,48 @@ const FormCreateOrder = ({}) => {
                 </label>
               </div>
             </div>
+
+            <ErrorMessage name="name" className="error" component="div" />
+            <Field
+              className="form__input"
+              type="text"
+              placeholder={formTr.name[lang]}
+              name="name"
+            />
+            <ErrorMessage
+              name="agencyTitle"
+              className="error"
+              component="div"
+            />
+            <Field
+              className="form__input"
+              type="text"
+              placeholder={formTr.agencyTitle[lang]}
+              name="agencyTitle"
+            />
+
+            <ErrorMessage name="customs" className="error" component="div" />
+            <Field
+              className="form__input"
+              type="number"
+              placeholder={formTr.quanitity[lang]}
+              name="customs"
+            />
+
+            <ErrorMessage name="phone" className="error" component="div" />
+            <Field name="phone">
+              {({ field }) => (
+                <InputMask
+                  {...field}
+                  mask="+99(999) 999-9999"
+                  id="phone"
+                  placeholder={formTr.phone[lang]}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="form__input"
+                />
+              )}
+            </Field>
 
             <span style={{ marginBottom: "10px" }}>{formTr.date[lang]}</span>
             <ErrorMessage name="date" className="error" component="div" />

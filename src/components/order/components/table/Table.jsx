@@ -1,12 +1,17 @@
 import React from "react";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilterData, delOrder } from "../../../../store/slices/orderSlice";
+import {
+  getFilterData,
+  delOrder,
+  putOrder,
+} from "../../../../store/slices/orderSlice";
 import { logout } from "../../../../store/slices/userSlice";
 import { makeUrl } from "./components/makeUrl";
 import HeaderTable from "./components/HeaderTable";
 import BodyTable from "./components/BodyTable";
 import ModalDelete from "./components/ModalDelete";
+import ModalPut from "./components/ModalPut";
 import ModalDetails from "./components/ModalDetails";
 import Pagination from "./components/pagination/Pagination";
 import { changeDateFormat } from "../../../../utils/formatDate";
@@ -23,6 +28,7 @@ const TableReport = React.memo(() => {
   const [PageSize, setPageSize] = useState(25);
   let offset = (currentPage - 1) * PageSize;
   const totalPages = useSelector((state) => state.order.total);
+  const userType = useSelector((state) => state.user.data.type);
   // const loading = useSelector((state) => state.data.loading);
 
   if (currentPage - 1 > totalPages / PageSize) {
@@ -61,7 +67,7 @@ const TableReport = React.memo(() => {
     visible: false,
     item: {},
   });
-  // request detele Modal
+  // request details Modal
   const onCloseDetails = () =>
     setModalDetails(() => {
       return {
@@ -69,6 +75,33 @@ const TableReport = React.memo(() => {
         visible: false,
       };
     });
+
+  // state modal put
+  const [modalPutState, setModalPut] = useState({
+    visible: false,
+    item: {},
+  });
+  // request put Modal
+  const onClosePut = () =>
+    setModalPut(() => {
+      return {
+        item: {},
+        visible: false,
+      };
+    });
+  const getPutModal = (data) => {
+    const req = dispatch(
+      putOrder({
+        id: modalPutState.item.id,
+        body: makeUrl(dataInput),
+        offset,
+        data,
+      })
+    );
+
+    onCloseDelete();
+    return req;
+  };
   // first date
   const formatDate = (date) => {
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -120,6 +153,11 @@ const TableReport = React.memo(() => {
         onCloseDelete={onCloseDelete}
         getDeleteModal={getDeleteModal}
       />
+      <ModalPut
+        modalPut={modalPutState}
+        onClosePut={onClosePut}
+        getPutModal={getPutModal}
+      />
       <ModalDetails modalState={modalDetailsState} onClose={onCloseDetails} />
       <div className="table_button_wrapper">
         <div></div>
@@ -141,7 +179,7 @@ const TableReport = React.memo(() => {
                 <HeaderTable
                   dataInput={dataInput}
                   onChangeData={onChangeData}
-                  columns={columnsTable}
+                  columns={columnsTable[userType]}
                 />
               </tr>
             </thead>
@@ -149,8 +187,9 @@ const TableReport = React.memo(() => {
               <BodyTable
                 setModalDetele={setModalDetele}
                 setModalDetails={setModalDetails}
+                setModalPut={setModalPut}
                 data={data}
-                columns={columnsTable}
+                columns={columnsTable[userType]}
               />
             </tbody>
           </table>
