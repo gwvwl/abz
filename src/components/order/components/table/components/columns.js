@@ -13,10 +13,6 @@ export const columnsTable = {
       accessor: "date",
     },
     {
-      Header: "type",
-      accessor: "type",
-    },
-    {
       Header: "name",
       accessor: "name",
     },
@@ -49,10 +45,6 @@ export const columnsTable = {
     {
       Header: "date",
       accessor: "date",
-    },
-    {
-      Header: "type",
-      accessor: "type",
     },
     {
       Header: "name",

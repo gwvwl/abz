@@ -10,6 +10,7 @@ const ModalDetails = ({ modalState, onClose }) => {
         modalState.item && (
           <div className="modal_details_content">
             <p>Agency title: {modalState.item.agencyTitle},</p>
+            <p>Type: {modalState.item.type},</p>
             <p>Details: {modalState.item.details} .</p>
           </div>
         )
