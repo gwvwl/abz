@@ -57,7 +57,12 @@
 .modal-content {
   padding: 1rem;
 }
-
+.form_put textarea {
+  margin-bottom: 3px;
+}
+.form_put .form__input {
+  width: 300px;
+}
 .modal-title {
   margin: 0;
 }

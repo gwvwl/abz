@@ -50,7 +50,7 @@ const FormCreateOrder = ({}) => {
       }}
       validationSchema={Yup.object({
         name: Yup.string().min(2, "min 2").required("required"),
-        customs: Yup.string().required("required"),
+        customs: Yup.string().required("required number"),
         phone: Yup.string()
           // .min(12, "min 12")
           .required("required")

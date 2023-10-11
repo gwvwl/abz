@@ -17,6 +17,8 @@ import Pagination from "./components/pagination/Pagination";
 import { changeDateFormat } from "../../../../utils/formatDate";
 import { columnsTable } from "./components/columns";
 import { useNavigate } from "react-router-dom";
+import axios, { API_URL } from "../../../../axios";
+import { fetchEventSource } from "@microsoft/fetch-event-source";
 import "./index.css";
 
 const TableReport = React.memo(() => {
@@ -144,7 +146,33 @@ const TableReport = React.memo(() => {
 
     onCloseDelete();
   };
-
+  // connnect order
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    const controller = new AbortController();
+    const connectEventSource = async () => {
+      await fetchEventSource(`${API_URL}/connect_order`, {
+        headers,
+        signal: controller.signal,
+        async onopen(response) {
+          if (response.status === 401) {
+            const response = await axios.get(`${API_URL}/refresh`, {
+              withCredentials: true,
+            });
+            localStorage.setItem("token", response.data.acsses);
+          }
+        },
+        onmessage() {
+          dispatch(getFilterData({ body: makeUrl(dataInput), offset }));
+        },
+      });
+    };
+    connectEventSource();
+    return () => controller.abort();
+  }, []);
   return (
     <div className="wrapper_table">
       {/* {loading && <Spinner />} */}

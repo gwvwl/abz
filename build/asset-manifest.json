@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.3bd53d69.css",
-    "main.js": "./static/js/main.bd6a562e.js",
+    "main.css": "./static/css/main.dd94774a.css",
+    "main.js": "./static/js/main.8707aad9.js",
     "static/media/logo.png": "./static/media/logo.a41cd2cac13389bd8995.png",
     "static/media/Nunito-Regular.ttf": "./static/media/Nunito-Regular.ecb051cfab7da456b69f.ttf",
     "index.html": "./index.html",
-    "main.3bd53d69.css.map": "./static/css/main.3bd53d69.css.map",
-    "main.bd6a562e.js.map": "./static/js/main.bd6a562e.js.map"
+    "main.dd94774a.css.map": "./static/css/main.dd94774a.css.map",
+    "main.8707aad9.js.map": "./static/js/main.8707aad9.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bd53d69.css",
-    "static/js/main.bd6a562e.js"
+    "static/css/main.dd94774a.css",
+    "static/js/main.8707aad9.js"
   ]
 }
