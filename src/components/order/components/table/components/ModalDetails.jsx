@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import UseModal from "./UseModal";
 
 const ModalDetails = ({ modalState, onClose }) => {
+  const type = useSelector((state) => state.user.data.type);
+
   return (
     <UseModal
       visible={modalState.visible}
@@ -10,7 +13,7 @@ const ModalDetails = ({ modalState, onClose }) => {
         modalState.item && (
           <div className="modal_details_content">
             <p>Type: {modalState.item.type},</p>
-            <p>Phone: {modalState.item.phone},</p>
+            {type !== "user" && <p>Phone: {modalState.item.phone},</p>}
             <p>Details: {modalState.item.details} .</p>
           </div>
         )
