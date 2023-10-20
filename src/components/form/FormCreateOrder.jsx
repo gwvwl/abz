@@ -51,14 +51,14 @@ const FormCreateOrder = ({}) => {
       validationSchema={Yup.object({
         name: Yup.string().min(2, "min 2").required("required"),
         customs: Yup.string().required("required number"),
-        phone: Yup.string()
-          // .min(12, "min 12")
-          .required("required")
-          .test(
-            "min 12",
-            "Enter phone number",
-            (value) => !value || (value && !value.includes("_"))
-          ),
+        // phone: Yup.string()
+        //   // .min(12, "min 12")
+        //   .required("required")
+        //   .test(
+        //     "min 12",
+        //     "Enter phone number",
+        //     (value) => !value || (value && !value.includes("_"))
+        //   ),
         date: Yup.string()
           // .min(12, "min 12")
           .required("required")
